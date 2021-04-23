@@ -30,7 +30,7 @@ namespace Pacer
 
     enum class TimelineStatus : uint8_t
     {
-        kStopped = 0
+        kStopped = 0,
         kStandby = 1,
         kRunning = 2,
         kPaused = 3,
@@ -44,7 +44,7 @@ namespace Pacer
             : hour_(hour)
             , minute_(minute)
             , second_(second)
-            , subseconValue_(value)
+            , subsecondValue_(value)
             , subsecondScale_(scale)
         {}
 
@@ -65,7 +65,7 @@ namespace Pacer
         std::string name_;
         TimelineStamp referenceTimeOffset;
         TimelineStamp timestamp_;
-        uint8_t timelineHint_;
+        uint8_t timelineHint_ = 0;
     };
     void PackTimelineStatus(const TimelineStatus & message, MESSAGE_BUFFER & buf);
     bool UnpackTimelineStatus(const MESSAGE_BUFFER & buf, TimelineStatus & message);
