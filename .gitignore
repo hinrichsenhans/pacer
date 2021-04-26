@@ -1,0 +1,14 @@
+*.obj
+*.exe
+*.ilk
+*.pdb
+*.idb
+*.tlog
+*.suo
+c_cpp_properties.json
+settings.json
+*.vcxproj.user
+*.db
+*.opendb
+*.ipch
+*.log
