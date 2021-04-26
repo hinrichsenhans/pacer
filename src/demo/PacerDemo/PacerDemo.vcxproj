@@ -158,7 +158,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\pacerserver.cpp" />
     <ClCompile Include="..\..\pacerworker.cpp" />
-    <ClCompile Include="..\..\taskqueue.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

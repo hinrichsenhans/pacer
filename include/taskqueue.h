@@ -8,9 +8,23 @@ public:
     typedef std::vector<T> TASKS;
     typedef std::lock_guard<std::mutex> LOCKER;
 
-    void Add(T && task); //queue a single task
-    void PopAll(TASKS & tasks); //thread to do the work swaps out the work
-    void Terminate();
+    void Add(T&& task)
+    {
+        LOCKER lock(mutex_);
+        tasks_.emplace_back(task);
+    }
+
+    void PopAll(TASKS& tasks)
+    {
+        LOCKER lock(mutex_);
+        tasks.swap(tasks_);
+    }
+
+    void Terminate()
+    {
+        LOCKER lock(mutex_);
+        tasks_.clear();
+    }
 
 private:
     std::mutex mutex_;
